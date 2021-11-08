@@ -1,13 +1,11 @@
-import {CaesarROT1TransformStream} from './encrypt/caesar/caesarROT1TransformStream.js';
+import {AtbashTransformStream} from './encrypt/atbashTransformStream.js';
 import {pipeline} from 'stream';
 
-const streamCaesarEncryption = new CaesarROT1TransformStream(true);
-const streamCaesarDecryption = new CaesarROT1TransformStream(false);
+const streamAtbash = new AtbashTransformStream();
 
 pipeline(
     process.stdin,
-    streamCaesarEncryption,
-    streamCaesarDecryption,
+    streamAtbash,
     process.stdout,
     (err => {
         console.log(err.message);
