@@ -3,16 +3,16 @@ function parseInputParameters(args) {
 
     args.forEach((parameter, index) => {
         switch (parameter) {
-            case "-c":
-            case "--config":
+            case '-c':
+            case '--config':
                 config = args[index + 1];
                 break;
-            case "-i":
-            case "--input":
+            case '-i':
+            case '--input':
                 input = args[index + 1];
                 break;
-            case "-o":
-            case "--output":
+            case '-o':
+            case '--output':
                 output = args[index + 1];
                 break;
         }
