@@ -1,7 +1,7 @@
 import {validConfig} from './validConfig.js'
-import {CaesarROT1TransformStream} from '../encrypt/caesar/caesarROT1TransformStream.js'
-import {CaesarROT8TransformStream} from '../encrypt/caesar/caesarROT8TransformStream.js'
-import {AtbashTransformStream} from '../encrypt/atbashTransformStream.js'
+import {CaesarROT1TransformStream} from '../../encrypt/caesar/caesarROT1TransformStream.js'
+import {CaesarROT8TransformStream} from '../../encrypt/caesar/caesarROT8TransformStream.js'
+import {AtbashTransformStream} from '../../encrypt/atbash/atbashTransformStream.js'
 
 function createArrayStreamsFromConfig (config) {
     if(!validConfig(config)) {
