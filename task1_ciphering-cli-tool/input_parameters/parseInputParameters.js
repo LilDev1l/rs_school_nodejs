@@ -1,5 +1,5 @@
 function parseInputParameters(args) {
-    let config, input, output;
+    let config, inputFile, outputFile;
 
     args.forEach((parameter, index) => {
         switch (parameter) {
@@ -9,16 +9,16 @@ function parseInputParameters(args) {
                 break;
             case '-i':
             case '--input':
-                input = args[index + 1];
+                inputFile = args[index + 1];
                 break;
             case '-o':
             case '--output':
-                output = args[index + 1];
+                outputFile = args[index + 1];
                 break;
         }
     })
 
-    return {config, input, output};
+    return {config, inputFile, outputFile};
 }
 
 export {parseInputParameters};
