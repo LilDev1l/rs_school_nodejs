@@ -2,10 +2,11 @@ import {validConfig} from './validConfig.js'
 import {CaesarROT1TransformStream} from '../../encrypt/caesar/caesarROT1TransformStream.js'
 import {CaesarROT8TransformStream} from '../../encrypt/caesar/caesarROT8TransformStream.js'
 import {AtbashTransformStream} from '../../encrypt/atbash/atbashTransformStream.js'
+import {InvalidConfigError} from '../../errors/InvalidConfigError.js';
 
 function createArrayStreamsFromConfig (config) {
     if(!validConfig(config)) {
-        throw new Error('Невалидный конфиг');
+        throw new InvalidConfigError('Invalid config');
     } else {
         const streams = [];
         config.split('-').forEach(configStream => streams.push(createStream(configStream)));

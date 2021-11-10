@@ -3,13 +3,29 @@ import {parseInputParameters} from './input_parameters/parseInputParameters.js';
 import {tryCreateInputStreamFile, tryCreateOutputStreamFile} from './input_parameters/IO_files/tryCreateStreamFile.js'
 import {createArrayStreamsFromConfig} from './input_parameters/config/configHandler.js';
 
-const inputParameters = parseInputParameters(process.argv.slice(2));
-const streamsTransform = createArrayStreamsFromConfig(inputParameters.config);
+let inputParameters, streamsTransform;
+try {
+    inputParameters = parseInputParameters(process.argv.slice(2));
+    streamsTransform = createArrayStreamsFromConfig(inputParameters.config);
+} catch (err) {
+    console.error(err.message);
+    process.exit(1);
+}
 
 (async () => {
     let inputStream, outputStream;
-    inputStream = await tryCreateInputStreamFile(inputParameters.inputFile).catch(() => console.log("Не удалось открыть входной файл"));
-    outputStream = await tryCreateOutputStreamFile(inputParameters.outputFile).catch(() => console.log("Не удалось открыть выходной файл"));
+    try {
+        if (inputParameters.inputFile !== undefined) {
+            inputStream = await tryCreateInputStreamFile(inputParameters.inputFile);
+        }
+        if (inputParameters.outputFile !== undefined) {
+            outputStream = await tryCreateOutputStreamFile(inputParameters.outputFile);
+        }
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+
 
     pipeline(
         inputStream ?? process.stdin,
