@@ -1,7 +1,7 @@
 class ConfigOptionError extends Error {
     constructor(message) {
         super(message);
-        this.name = "DuplicateOptionError";
+        this.name = "ConfigOptionError";
     }
 }
 

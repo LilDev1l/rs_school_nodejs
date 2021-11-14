@@ -2,14 +2,14 @@ import fs from 'fs/promises';
 
 async function tryCreateInputStreamFile(pathFile) {
     const fileHandle = await fs.open(pathFile, 'r');
-    const inputStream = await fileHandle.createReadStream()
+    const inputStream = fileHandle.createReadStream()
 
     return inputStream;
 }
 
 async function tryCreateOutputStreamFile(pathFile) {
     const fileHandle = await fs.open(pathFile, 'a');
-    const outputStream = await fileHandle.createWriteStream()
+    const outputStream = fileHandle.createWriteStream()
 
     return outputStream;
 }
