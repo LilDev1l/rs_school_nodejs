@@ -8,7 +8,7 @@ async function tryCreateInputStreamFile(pathFile) {
 }
 
 async function tryCreateOutputStreamFile(pathFile) {
-    const fileHandle = await fs.open(pathFile, 'a');
+    const fileHandle = await fs.open(pathFile, 'ax');
     const outputStream = fileHandle.createWriteStream()
 
     return outputStream;
