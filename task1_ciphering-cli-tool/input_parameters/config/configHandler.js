@@ -1,7 +1,5 @@
 import {validConfig} from './validConfig.js'
-import {CaesarROT1TransformStream} from '../../encrypt/caesar/caesarROT1TransformStream.js'
-import {CaesarROT8TransformStream} from '../../encrypt/caesar/caesarROT8TransformStream.js'
-import {AtbashTransformStream} from '../../encrypt/atbash/atbashTransformStream.js'
+import * as Encrypt from '../../encrypt/index.js'
 import {InvalidConfigError} from '../../errors/InvalidConfigError.js';
 
 function createArrayStreamsFromConfig (config) {
@@ -20,13 +18,13 @@ function createStream(configStream) {
 
     switch(configStream[0]) {
         case 'C':
-            stream = Boolean(+configStream[1]) ? new CaesarROT1TransformStream(true) : new CaesarROT1TransformStream(false);
+            stream = Boolean(+configStream[1]) ? new Encrypt.CaesarROT1TransformStream(true) : new Encrypt.CaesarROT1TransformStream(false);
             break;
         case 'R':
-            stream = Boolean(+configStream[1]) ? new CaesarROT8TransformStream(true) : new CaesarROT8TransformStream(false);
+            stream = Boolean(+configStream[1]) ? new Encrypt.CaesarROT8TransformStream(true) : new Encrypt.CaesarROT8TransformStream(false);
             break;
         case 'A':
-            stream = new AtbashTransformStream();
+            stream = new Encrypt.AtbashTransformStream();
             break;
     }
 
