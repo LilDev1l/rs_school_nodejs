@@ -2,9 +2,9 @@
   "name": "task1_ciphering-cli-tool",
   "version": "1.0.0",
   "description": "CLI tool that encode and decode a text by 3 substitution ciphers",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "LilDev1l",
   "license": "ISC",

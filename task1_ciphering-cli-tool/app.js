@@ -1,5 +1,5 @@
 import {pipeline} from 'stream';
-import * as Parameters from './input_parameters/index.js';
+import * as Parameters from './src/input_parameters/index.js';
 
 (async () => {
     try {
