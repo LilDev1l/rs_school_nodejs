@@ -1,0 +1,12 @@
+{
+  "name": "task2_testing",
+  "version": "1.0.0",
+  "description": "Testing CLI tool",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "LilDev1l",
+  "license": "ISC",
+  "type": "module"
+}
